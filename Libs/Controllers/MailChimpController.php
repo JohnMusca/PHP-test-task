@@ -38,10 +38,10 @@ Class MailChimpController
     public function run()
     {
         //add List
-        $this->mailList->createList();
+        $list_id = $this->mailList->createList();
         
         //add member to list
-        $this->mailList->createList($this->member);
+        $this->mailList->addMember($this->member);
         
         //modify our member object
         

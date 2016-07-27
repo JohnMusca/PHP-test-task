@@ -28,7 +28,7 @@ Class MailList
      */
     public function createList()
     {
-        
+        return $this->$mailChimp->query();
     }
     
     /**

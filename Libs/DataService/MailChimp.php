@@ -17,6 +17,11 @@ class MailChimp implements SingletonInterface
     private static $api_key = '';
     
     /**
+     * @var string Endpoint
+     */
+    private static $api_endpoint = 'https://<dc>.api.mailchimp.com/3.0';
+    
+    /**
      * @var Object The current running instance of the object.
      */
     private static $instance;
@@ -31,6 +36,12 @@ class MailChimp implements SingletonInterface
      * @var \Config
      */
     private static $config = Null;
+    
+    /**
+     * The guzzle client.
+     * @var Guzzle
+     */
+    private static $client = Null;
     
     
     private function __construct()
@@ -50,8 +61,8 @@ class MailChimp implements SingletonInterface
             SELF::$config = $config;
             
             SELF::setCredentials(SELF::$config->__get('api_key'));
-             
-            SELF::$client = new GuzzleHttp\Client();
+            
+            SELF::$client = new \GuzzleHttp\Client();
             
             static::$instance = new static();
         }
@@ -67,27 +78,25 @@ class MailChimp implements SingletonInterface
     private function setCredentials($api_key = '')
     {
         SELF::$api_key = $api_key;
+        list(, $dc) = explode('-', $api_key);
+        SELF::$api_endpoint = str_replace('<dc>', $dc, SELF::$api_endpoint);
     }
 
     
     /**
-     * query.
+     * Method to interact with Mailchimp API.
      *
-     * @param String $query        The array with the data.
-     * @param String $query_object The object to query on.
-     * @param String $method       The method to use (post/get).
-     * @param String $query        The query to use.
+     * 
      *
      * @return Array The data in the form of an array.
      */
     public static function query($data = array(), $query_object = '', $method = 'POST', $query = '')
     {        
-        $query_params = array(
-                'headers' => array(
-                        'Authorization' => 'Bearer ' . SELF::$token
-                )
-        );
+        $query_params = [];
         
+        //auth
+        $query_params['auth'] = ['username', 'password'];
+
         if(!empty($data))
         {
             $query_params['json'] = $data;
@@ -100,7 +109,7 @@ class MailChimp implements SingletonInterface
                                      );
         }
         
-        $res = SELF::$client->request($method, SELF::$instance_url .'/services/data/v33.0/' . $query_object, $query_params);
+        $res = SELF::$client->request($method, SELF::$api_endpoint .'/services/data/v33.0/' . $query_object, $query_params);
         
         $request_object = json_decode($res->getBody()->getContents());
         

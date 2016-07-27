@@ -77,6 +77,7 @@ class Config implements SingletonInterface
     }
     
     /**
+     * Magic method, get.
      * 
      * @param String $name The name of the private variable to access.$this
      * 
