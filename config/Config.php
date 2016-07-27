@@ -2,12 +2,14 @@
 
 namespace Manager\libs\DataService;
 
+use Manager\Libs\Interfaces\SingletonInterface;
+
 class Config implements SingletonInterface
 {   
     /**
     * @var string Username.
     */
-    private static $username = 'DaCount1';
+    private static $username = '';
     
     /**
      * @var string Password.
@@ -72,5 +74,16 @@ class Config implements SingletonInterface
     private function __wakeup()
     {
     
+    }
+    
+    /**
+     * 
+     * @param String $name The name of the private variable to access.$this
+     * 
+     * @return String The value of the variable accessed or false.
+     */
+    public function __get($name)
+    {
+        return (isset($this->$name) ? $this->$name : false);
     }
 }
