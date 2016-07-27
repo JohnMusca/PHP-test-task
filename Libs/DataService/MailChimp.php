@@ -57,6 +57,8 @@ class MailChimp implements SingletonInterface
     /**
      * Returns the *Singleton* instance of this class.
      *
+     * @param \Config\Config $config The config object.
+     *
      * @return Singleton The *Singleton* instance.
      */
     public static function getInstance(\Config\Config $config = Null)
@@ -77,6 +79,8 @@ class MailChimp implements SingletonInterface
     
     /**
      * SetDbCredentials.
+     * 
+     * @param string $api_key The api key.
      *
      * @return void
      */
