@@ -86,30 +86,25 @@ class MailChimp implements SingletonInterface
     /**
      * Method to interact with Mailchimp API.
      *
-     * 
+     * @param array  $data         The data to pass to mailchimp.
+     * @param string $query_object The query object to hit for mailchimp, e.g. /lists
+     * @param string $method       The method to use, Post, Get, e.t.c
      *
-     * @return Array The data in the form of an array.
+     * @return array The data in the form of an array.
      */
-    public static function query($data = array(), $query_object = '', $method = 'POST', $query = '')
+    public static function query(array $data = array(), $query_object = '', $method = 'POST')
     {        
         $query_params = [];
         
         //auth
-        $query_params['auth'] = ['username', 'password'];
+        $query_params['auth'] = ['', SELF::$api_key];
 
         if(!empty($data))
         {
             $query_params['json'] = $data;
         }
-        
-        if(!empty($query))
-        {
-            $query_params['query'] = array(
-                                         'q' => $query
-                                     );
-        }
-        
-        $res = SELF::$client->request($method, SELF::$api_endpoint .'/services/data/v33.0/' . $query_object, $query_params);
+ 
+        $res = SELF::$client->request($method, SELF::$api_endpoint . $query_object, $query_params);
         
         $request_object = json_decode($res->getBody()->getContents());
         
