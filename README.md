@@ -1,10 +1,13 @@
 ### Description:
-- Adds a list to mailchimp
-- Adds a user to mailchimp list
-- Updates user in mailchimp list
+- Adds a list to mailchimp.
+- Adds a user to mailchimp list.
+- Updates user in mailchimp list.
+
+### Documentation:
+- Located in the /docs folder.
 
 ### Configuration
-- Change the api key in config/config.php (the $api_key attribute)
+- Change the api key in config/config.php (the $api_key attribute).
 
 ###Usage instructions:
 - php manage.php
@@ -15,7 +18,7 @@
 
 ### TODO:
 - Update __set and __get to use composition from a central magic method object.
-- Fix bug where first list doesn't have subscriber added to it
+- Fix bug where first list doesn't have subscriber added to it.
 
 ### Notes:
 - I'd like to have made a collection of lists and a collection of members driven by the database.
