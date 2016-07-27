@@ -24,16 +24,9 @@ class MemberFactoryTest extends PHPUnit_Framework_TestCase
         $this->member = Null;
     }
     
-    public function test__get()
+    public function testCreate()
     {
-        $this->assertEquals($this->member->__get('email_address'), $this->email_address);
-    }
-    
-    public function test__set()
-    {
-        $test_email = 'jm@test.com';
-        $this->member->__set('email_address', $test_email);
-        $this->assertEquals($this->member->__get('email_address'), $test_email);
+        $this->assertInstanceOf("\Libs\Member", $this->member);
     }
 }
 ?>

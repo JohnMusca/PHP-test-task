@@ -20,8 +20,7 @@ class MailListManagerFactoryTest extends PHPUnit_Framework_TestCase
     
     public function testCreate()
     {
-        //not yet implemented
-        $this->assertEquals(1, 1);
+        $this->assertInstanceOf("\Libs\MailListManager", $this->mailListManager);
     }
     
 }

@@ -21,10 +21,9 @@ class MailChimpFactoryTest extends PHPUnit_Framework_TestCase
     /**
      * Not yet implemented, need to think of good ways to test this.
      */
-     public function test()
-     {
-         //not yet implemented
-         $this->assertEquals(1, 1);
-     }
+    public function testCreate()
+    {
+        $this->assertInstanceOf("\Libs\DataService\MailChimp", $this->mailChimp);
+    }
 }
 ?>

@@ -15,12 +15,12 @@ class MailListFactoryTest extends PHPUnit_Framework_TestCase
     
     protected function tearDown()
     {
-        $this->member = Null;
+        $this->mailList = Null;
     }
     
-    public function test__get()
+    public function testCreate()
     {
-        $this->assertEquals($this->mailList->__get('visibility'), $this->visibility);
+        $this->assertInstanceOf("\Libs\MailList", $this->mailList);
     }
 }
 ?>
