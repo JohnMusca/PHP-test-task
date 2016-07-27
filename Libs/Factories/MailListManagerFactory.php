@@ -2,7 +2,6 @@
 
 namespace Libs\Factories;
 
-use Manager;
 use Libs;
 use Libs\Interfaces\FactoryInterface;
 
