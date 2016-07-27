@@ -19,7 +19,7 @@ class Config implements SingletonInterface
     /**
      * @var string DB_url.
      */
-    private static $api_key = '2b976df89c7e404eea60b26153152bdc-us13';
+    private static $api_key = '11c965bd582f1a12acefcc4cf8bd365a-us13';
     
     /**
      * @var Object The current running instance of the object.

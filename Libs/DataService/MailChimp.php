@@ -75,13 +75,12 @@ class MailChimp implements SingletonInterface
      *
      * @return void
      */
-    private function setCredentials($api_key = '')
+    private static function setCredentials($api_key = '')
     {
         SELF::$api_key = $api_key;
         list(, $dc) = explode('-', $api_key);
         SELF::$api_endpoint = str_replace('<dc>', $dc, SELF::$api_endpoint);
     }
-
     
     /**
      * Method to interact with Mailchimp API.
@@ -98,13 +97,28 @@ class MailChimp implements SingletonInterface
         
         //auth
         $query_params['auth'] = ['', SELF::$api_key];
+        
+        $query_params['headers'] = ['content-type' => 'application/json',
+                                    'accept'       => 'application/json'];
+        
+        //TODO: Add certitfacte
+        $query_params['verify'] = false;
 
-        if(!empty($data))
+        if(!empty($data)) 
         {
-            $query_params['json'] = $data;
+            $query_params['body'] = json_encode($data);        
         }
- 
-        $res = SELF::$client->request($method, SELF::$api_endpoint . $query_object, $query_params);
+        
+		try 
+		{
+		    $res = SELF::$client->request($method, SELF::$api_endpoint . $query_object, $query_params);
+		} catch (\GuzzleHttp\Exception\ClientException $e) {
+		    echo 'Guzzle excpetion: ' . $e->getMessage();
+		    echo "\r\n" . $method . "\r\n";
+		    echo SELF::$api_endpoint . $query_object . "\r\n";
+		    print_r($query_params);
+		    exit;
+		}
         
         $request_object = json_decode($res->getBody()->getContents());
         

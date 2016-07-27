@@ -12,14 +12,14 @@ Class MailChimpController
      * 
      * @var \MailList
      */
-    private static $mailList = Null;
+    private $mailList = Null;
     
     /**
      * Instance of the member object.
      * 
      * @var \Member
      */
-    private static $member = Null;
+    private $member = Null;
     
     public function __construct()
     {

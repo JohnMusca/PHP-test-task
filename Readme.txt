@@ -10,3 +10,4 @@ TODO:
 Autoloader
 clean up comments
 Tests
+Use certificate for connection (verify)
