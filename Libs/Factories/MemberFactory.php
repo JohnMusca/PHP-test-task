@@ -1,19 +1,19 @@
 <?php
 
-namespace Manager\Libs\Factories;
+namespace Libs\Factories;
 
-use Manager;
-use Manager\Libs\Interfaces\FactoryInterface;
+use Libs;
+use Libs\Interfaces\FactoryInterface;
 
 class MemberFactory implements FactoryInterface
 {
     /**
      * Creates a Student object
      * 
-     * @return \Manager\libs\Factories\Student
+     * @return \libs\Factories\Student
      */
     public static function create()
     {
-        return new Manager\Member();
+        return new Libs\Member();
     }
 }

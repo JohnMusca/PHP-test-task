@@ -1,8 +1,8 @@
 <?php
 
-namespace Manager\libs\DataService;
+namespace libs\DataService;
 
-use Manager\Libs\Interfaces\SingletonInterface;
+use Libs\Interfaces\SingletonInterface;
 
 class MailChimp implements SingletonInterface
 {
@@ -54,7 +54,7 @@ class MailChimp implements SingletonInterface
      *
      * @return Singleton The *Singleton* instance.
      */
-    public static function getInstance(\Manager\Config\Config $config = Null)
+    public static function getInstance(\Config\Config $config = Null)
     {
         if (null === static::$instance) 
         {

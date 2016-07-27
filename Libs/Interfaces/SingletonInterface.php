@@ -1,6 +1,6 @@
 <?php
 
-namespace Manager\Libs\Interfaces;
+namespace Libs\Interfaces;
 
 interface SingletonInterface
 {   

@@ -1,19 +1,20 @@
 <?php
 
-namespace Manager\Libs\Factories;
+namespace Libs\Factories;
 
 use Manager;
-use Manager\Libs\Interfaces\FactoryInterface;
+use Libs;
+use Libs\Interfaces\FactoryInterface;
 
 class MailListFactory implements FactoryInterface
 {
     /**
      * Creates a classroom object.
      * 
-     * @return \Manager\libs\Factories\Classroom
+     * @return \libs\Factories\Classroom
      */
     public static function create()
     {
-        return new Manager\MailList();
+        return new Libs\MailList();
     }
 }

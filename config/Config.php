@@ -1,8 +1,8 @@
 <?php
 
-namespace Manager\Config;
+namespace Config;
 
-use Manager\Libs\Interfaces\SingletonInterface;
+use Libs\Interfaces\SingletonInterface;
 
 class Config implements SingletonInterface
 {   

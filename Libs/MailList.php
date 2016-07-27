@@ -1,8 +1,8 @@
 <?php
 
-namespace Manager;
+namespace Libs;
 
-use Manager\Libs\Factories;
+use Libs\Factories;
 
 Class MailList 
 {
@@ -58,7 +58,7 @@ Class MailList
      */
     public function __construct()
     {
-        $this->mailChimp = \Manager\Libs\Factories\MailChimpFactory::create();
+        $this->mailChimp = \Libs\Factories\MailChimpFactory::create();
     }
     
     /**
