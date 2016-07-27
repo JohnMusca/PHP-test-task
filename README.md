@@ -3,6 +3,9 @@
 - Adds a user to mailchimp list
 - Updates user in mailchimp list
 
+### Configuration
+- Change the api key in config/config.php (the $api_key attribute)
+
 ###Usage instructions:
 - php manage.php
 
@@ -11,8 +14,9 @@
 - Test suite (all tests): vendor/phpunit/phpunit/phpunit --bootstrap vendor/autoload.php tests
 
 ### TODO:
-- Tests
+- Update __set and __get to use composition from a central magic method object.
 - Fix bug where first list doesn't have subscriber added to it
+- Change all tabs into 4 spaces
 
 ### Notes:
 - I'd like to have made a collection of lists and a collection of members driven by the database.

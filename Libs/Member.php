@@ -22,7 +22,7 @@ Class Member
     /**
      * Magic method, get.
      * 
-     * @param sString $name The name of the private variable to access.
+     * @param string $name The name of the private variable to access.
      * 
      * @return string The value of the variable accessed or false.
      */

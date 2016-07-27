@@ -113,16 +113,16 @@ class MailChimp implements SingletonInterface
             $query_params['json'] = $data;        
         }
         
-		try 
-		{
-		    $res = SELF::$client->request($method, SELF::$api_endpoint . $query_object, $query_params);
-		} catch (\GuzzleHttp\Exception\ClientException $e) {
-		    echo 'Guzzle excpetion: ' . $e->getMessage();
-		    echo "\r\n" . $method . "\r\n";
-		    echo SELF::$api_endpoint . $query_object . "\r\n";
-		    print_r($query_params);
-		    exit;
-		}
+        try 
+        {
+            $res = SELF::$client->request($method, SELF::$api_endpoint . $query_object, $query_params);
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            echo 'Guzzle excpetion: ' . $e->getMessage();
+            echo "\r\n" . $method . "\r\n";
+            echo SELF::$api_endpoint . $query_object . "\r\n";
+            print_r($query_params);
+            exit;
+        }
         
         $request_object = json_decode($res->getBody()->getContents());
         

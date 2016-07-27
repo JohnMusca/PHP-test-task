@@ -113,4 +113,16 @@ Class MailList
         
         return $this->mailChimp->query($data, '/lists/' . $list_id . '/members/' . $member_id, 'PATCH')->id;
     }
+    
+    /**
+     * Magic method, get.
+     * 
+     * @param string $name The name of the private variable to access.
+     * 
+     * @return string The value of the variable accessed or false.
+     */
+    public function __get($name)
+    {
+        return (isset($this->$name) ? $this->$name : false);
+    }
 }
