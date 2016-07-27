@@ -35,6 +35,11 @@ Class MailList
                                    "from_email" => "freddie@freddiehats.com",
                                    "subject"    => "",
                                    "language"   => "en"];
+                                
+    /**
+     * @var string $visibility
+     */   
+    private $visibility = "pub";
     
     /**
      * @var boolean $email_type_option
@@ -68,21 +73,26 @@ Class MailList
                  'contact' => $this->contact,
                  'permission_reminder' => $this->permission_reminder,
                  'campaign_defaults' => $this->campaign_defaults,
-                 'email_type_option' => $this->email_type_option];
+                 'email_type_option' => $this->email_type_option,
+                 'visibility'        => $this->visibility];
         
-        return $this->mailChimp->query($data, '/lists', 'POST');
+        return $this->mailChimp->query($data, '/lists', 'POST')->id;
     }
     
     /**
      * Add Member.
      * 
-     * @param Member $member The member object to create.
+     * @param Member $member  The member object to create.
+     * @param String $list_id The list id.
      *
      * @return Boolean Returns True if successful, false if not.
      */
-    public function addMember(Member $member = null)
+    public function addMember(Member $member = null, $list_id = '')
     {
+        $data = ['email_address' => $member->__get('email_address'),
+                 'status'        => $member->__get('status')];
         
+        return $this->mailChimp->query($data, '/lists/' . $list_id . '/members', 'POST');
     }
     
     /**

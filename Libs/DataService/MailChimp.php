@@ -106,7 +106,7 @@ class MailChimp implements SingletonInterface
 
         if(!empty($data)) 
         {
-            $query_params['body'] = json_encode($data);        
+            $query_params['json'] = $data;        
         }
         
 		try 
