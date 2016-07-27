@@ -8,9 +8,7 @@ php manage.php
 
 TODO:
 Tests
-Use certificate for connection (verify)
 Fix bug where first list doesn't have subscriber added to it
-Instead of hardcoding values in Maillist.php, use reflection to get all attributes
 
 Notes:
 I'd like to have made a collection of lists and a collection of members driven by the database.

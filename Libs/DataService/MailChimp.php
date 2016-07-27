@@ -17,6 +17,11 @@ class MailChimp implements SingletonInterface
     private static $api_key = '';
     
     /**
+     * @var string $certificate_path
+     */
+    private static $certificate_path = 'certificates/cert.pem';
+    
+    /**
      * @var string Endpoint
      */
     private static $api_endpoint = 'https://<dc>.api.mailchimp.com/3.0';
@@ -101,8 +106,7 @@ class MailChimp implements SingletonInterface
         $query_params['headers'] = ['content-type' => 'application/json',
                                     'accept'       => 'application/json'];
         
-        //TODO: Add certitfacte
-        $query_params['verify'] = false;
+        $query_params['verify'] = SELF::$certificate_path;
 
         if(!empty($data)) 
         {

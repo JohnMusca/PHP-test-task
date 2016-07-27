@@ -87,7 +87,7 @@ Class MailList
      *
      * @return Boolean Returns True if successful, false if not.
      */
-    public function addMember(Member $member = null, $list_id = '')
+    public function addMember(\Libs\Member $member = null, $list_id = '')
     {
         $data = ['email_address' => $member->__get('email_address'),
                  'status'        => $member->__get('status'),
@@ -105,7 +105,7 @@ Class MailList
      *
      * @return Boolean Returns True if successful, false if not.
      */
-    public function updateMember(Member $member = null, $list_id = '', $member_id = '')
+    public function updateMember(\Libs\Member $member = null, $list_id = '', $member_id = '')
     {
         $data = ['email_address' => $member->__get('email_address'),
                  'status'        => $member->__get('status'),
