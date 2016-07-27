@@ -12,3 +12,4 @@ clean up comments
 Tests
 Use certificate for connection (verify)
 Fix bug where first list doesn't have subscriber added to it
+Instead of hardcoding values in Maillist.php, use reflection to get all attributes

@@ -90,20 +90,27 @@ Class MailList
     public function addMember(Member $member = null, $list_id = '')
     {
         $data = ['email_address' => $member->__get('email_address'),
-                 'status'        => $member->__get('status')];
+                 'status'        => $member->__get('status'),
+                 'email_type'    => $member->__get('email_type')];
         
-        return $this->mailChimp->query($data, '/lists/' . $list_id . '/members', 'POST');
+        return $this->mailChimp->query($data, '/lists/' . $list_id . '/members', 'POST')->id;
     }
     
     /**
-     * Modify Member in the list.
+     * Update Member in the list.
      * 
-     * @param Member $member The member object to modify
+     * @param Member $member    The member object to modify
+     * @param string $list_id   The list id.
+     * @param string $member_id The member id.
      *
      * @return Boolean Returns True if successful, false if not.
      */
-    public function modifyMemberInList(Member $member = null)
+    public function updateMember(Member $member = null, $list_id = '', $member_id = '')
     {
+        $data = ['email_address' => $member->__get('email_address'),
+                 'status'        => $member->__get('status'),
+                 'email_type'    => $member->__get('email_type')];
         
+        return $this->mailChimp->query($data, '/lists/' . $list_id . '/members/' . $member_id, 'PATCH')->id;
     }
 }

@@ -41,11 +41,12 @@ Class MailChimpController
         $list_id = $this->mailList->createList();
         
         //add member to list
-        $this->mailList->addMember($this->member, $list_id);
+        $member_id = $this->mailList->addMember($this->member, $list_id);
         
         //modify our member object
+        $this->member->__set('email_type', 'text');
         
         //update member of list
-        $this->mailList->modifyMemberInList($this->member);
+        $this->mailList->updateMember($this->member, $list_id, $member_id);
     }
 }

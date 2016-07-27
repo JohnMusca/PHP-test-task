@@ -15,14 +15,32 @@ Class Member
     private $status = "subscribed";
     
     /**
+     * @var string $email_type
+     */
+     private $email_type = "html";
+    
+    /**
      * Magic method, get.
      * 
-     * @param String $name The name of the private variable to access.$this
+     * @param sString $name The name of the private variable to access.
      * 
-     * @return String The value of the variable accessed or false.
+     * @return string The value of the variable accessed or false.
      */
     public function __get($name)
     {
         return (isset($this->$name) ? $this->$name : false);
+    }
+    
+    /**
+     * Magic method, set.
+     * 
+     * @param string $name  The name of the private variable to access.
+     * @param string $value The value to update.
+     * 
+     * @return String The value of the variable accessed or false.
+     */
+    public function __set($name, $value)
+    {
+        (isset($this->$name) ? $this->$name = $value : false);
     }
 }
