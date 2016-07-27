@@ -1,0 +1,7 @@
+{
+    "name": "phpunit",
+    "description": "PHPUnit",
+    "require": {
+        "phpunit/phpunit": "4.8.20"
+    }
+}
