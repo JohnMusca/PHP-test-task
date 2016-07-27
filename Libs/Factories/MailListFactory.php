@@ -2,6 +2,7 @@
 
 namespace Manager\Libs\Factories;
 
+use Manager;
 use Manager\Libs\Interfaces\FactoryInterface;
 
 class MailListFactory implements FactoryInterface
@@ -13,6 +14,6 @@ class MailListFactory implements FactoryInterface
      */
     public static function create()
     {
-        return new Classroom();
+        return new Manager\MailList();
     }
 }

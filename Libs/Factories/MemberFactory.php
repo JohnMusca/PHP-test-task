@@ -2,6 +2,7 @@
 
 namespace Manager\Libs\Factories;
 
+use Manager;
 use Manager\Libs\Interfaces\FactoryInterface;
 
 class MemberFactory implements FactoryInterface
@@ -13,6 +14,6 @@ class MemberFactory implements FactoryInterface
      */
     public static function create()
     {
-        return new Student();
+        return new Manager\Member();
     }
 }

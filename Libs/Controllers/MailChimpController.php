@@ -2,6 +2,8 @@
 
 namespace Manager\Libs\Controllers;
 
+use Manager\Libs\Factories;
+
 Class MailChimpController
 {
 
@@ -22,8 +24,10 @@ Class MailChimpController
     public function __construct()
     {
         //create instance of the maillist object
+        $this->mailList = \Manager\Libs\Factories\MailListFactory::create();
         
         //create instance of the member object
+        $this->member = \Manager\Libs\Factories\MemberFactory::create();
     }
     
     /**

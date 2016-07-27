@@ -1,5 +1,7 @@
 <?php
 
+namespace Manager;
+
 Class Member
 {
     /**
