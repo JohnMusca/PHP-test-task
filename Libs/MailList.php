@@ -45,75 +45,7 @@ Class MailList
      * @var boolean $email_type_option
      */
     private $email_type_option = True;
-    
-    /**
-     * Local instance of the maillist dataconnector
-     * 
-     * @var \MailChimp
-     */
-    private $mailChimp = Null;
-    
-    /**
-     * Default constructor.
-     */
-    public function __construct()
-    {
-        $this->mailChimp = \Libs\Factories\MailChimpFactory::create();
-    }
-    
-    /**
-     * Create list.
-     * 
-     * @return Boolean Returns True if successful, false if not.
-     */
-    public function createList()
-    {
-        //construct data to send
-        $data = ['name' => $this->name,
-                 'contact' => $this->contact,
-                 'permission_reminder' => $this->permission_reminder,
-                 'campaign_defaults' => $this->campaign_defaults,
-                 'email_type_option' => $this->email_type_option,
-                 'visibility'        => $this->visibility];
         
-        return $this->mailChimp->query($data, '/lists', 'POST')->id;
-    }
-    
-    /**
-     * Add Member.
-     * 
-     * @param Member $member  The member object to create.
-     * @param String $list_id The list id.
-     *
-     * @return Boolean Returns True if successful, false if not.
-     */
-    public function addMember(\Libs\Member $member = null, $list_id = '')
-    {
-        $data = ['email_address' => $member->__get('email_address'),
-                 'status'        => $member->__get('status'),
-                 'email_type'    => $member->__get('email_type')];
-        
-        return $this->mailChimp->query($data, '/lists/' . $list_id . '/members', 'POST')->id;
-    }
-    
-    /**
-     * Update Member in the list.
-     * 
-     * @param Member $member    The member object to modify
-     * @param string $list_id   The list id.
-     * @param string $member_id The member id.
-     *
-     * @return Boolean Returns True if successful, false if not.
-     */
-    public function updateMember(\Libs\Member $member = null, $list_id = '', $member_id = '')
-    {
-        $data = ['email_address' => $member->__get('email_address'),
-                 'status'        => $member->__get('status'),
-                 'email_type'    => $member->__get('email_type')];
-        
-        return $this->mailChimp->query($data, '/lists/' . $list_id . '/members/' . $member_id, 'PATCH')->id;
-    }
-    
     /**
      * Magic method, get.
      * 

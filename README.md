@@ -17,6 +17,7 @@
 - Test suite (all tests): vendor/phpunit/phpunit/phpunit --bootstrap vendor/autoload.php tests
 
 ### TODO:
+- Update UML to reflect list manager
 - Update __set and __get to use composition from a central magic method object.
 - Fix bug where first list doesn't have subscriber added to it.
 
