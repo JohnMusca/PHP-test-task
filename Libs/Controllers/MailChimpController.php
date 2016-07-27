@@ -10,14 +10,14 @@ Class MailChimpController
     /**
      * Instance of the maillist object.
      * 
-     * @var MailList
+     * @var \MailList
      */
     private static $mailList = Null;
     
     /**
      * Instance of the member object.
      * 
-     * @var Member
+     * @var \Member
      */
     private static $member = Null;
     
@@ -38,9 +38,14 @@ Class MailChimpController
     public function run()
     {
         //add List
+        $this->mailList->createList();
         
         //add member to list
+        $this->mailList->createList($this->member);
+        
+        //modify our member object
         
         //update member of list
+        $this->mailList->modifyMemberInList($this->member);
     }
 }

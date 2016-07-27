@@ -29,9 +29,10 @@ spl_autoload_register(function ($class) {
 require_once('Libs/Interfaces/FactoryInterface.php');
 require_once('Libs/Interfaces/SingletonInterface.php');
 require_once('Libs/Controllers/MailChimpController.php');
-require_once('Config/Config.php');
-require_once('Libs/DataService/MailChimp.php');
 require_once('Libs/Factories/MailListFactory.php');
 require_once('Libs/Factories/MemberFactory.php');
+require_once('Libs/Factories/MailChimpFactory.php');
+require_once('Config/Config.php');
+require_once('Libs/DataService/MailChimp.php');
 require_once('Libs/MailList.php');
 require_once('Libs/Member.php');

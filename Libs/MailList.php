@@ -2,14 +2,23 @@
 
 namespace Manager;
 
+use Manager\Libs\Factories;
+
 Class MailList 
 {
+    /**
+     * Local instance of the maillist dataconnector
+     * 
+     * @var \MailChimp
+     */
+    private static $mailChimp;
+    
     /**
      * Default constructor.
      */
     public function __construct()
     {
-        //not yet implemented
+        $this->$mailChimp = \Manager\Libs\Factories\MailChimpFactory::create();
     }
     
     /**
@@ -24,20 +33,24 @@ Class MailList
     
     /**
      * Add Member.
+     * 
+     * @param Member $member The member object to create.
      *
      * @return Boolean Returns True if successful, false if not.
      */
-    public function addMember()
+    public function addMember(Member $member = null)
     {
         
     }
     
     /**
-     * Modify list.
+     * Modify Member in the list.
+     * 
+     * @param Member $member The member object to modify
      *
      * @return Boolean Returns True if successful, false if not.
      */
-    public function modifyMember()
+    public function modifyMemberInList(Member $member = null)
     {
         
     }

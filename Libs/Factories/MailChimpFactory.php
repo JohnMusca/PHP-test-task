@@ -2,18 +2,23 @@
 
 namespace Manager\Libs\Factories;
 
+use Manager;
+use Manager\Config;
 use Manager\Libs\Interfaces\FactoryInterface;
 
 class MailChimpFactory implements FactoryInterface
 {
     /**
-     * Creates a classroom object.
+     * Creates a Mailchimp object.
      * 
-     * @return \Manager\libs\Factories\Classroom
+     * @return \Manager\libs\DataService\MailChimp
      */
     public static function create()
     {
-        //create a new mailchimp object here
+        //get current instance of config
+        $config = \Manager\Config\Config::getInstance();
         
+        //pass instance of config
+        return \Manager\libs\DataService\MailChimp::getInstance($config);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Manager\libs\DataService;
+namespace Manager\Config;
 
 use Manager\Libs\Interfaces\SingletonInterface;
 
@@ -84,6 +84,6 @@ class Config implements SingletonInterface
      */
     public function __get($name)
     {
-        return (isset($this->$name) ? $this->$name : false);
+        return (isset(SELF::$$name) ? SELF::$$name : false);
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+namespace Manager\libs\DataService;
+
 use Manager\Libs\Interfaces\SingletonInterface;
 
 class MailChimp implements SingletonInterface
@@ -17,11 +19,6 @@ class MailChimp implements SingletonInterface
     /**
      * @var string Username.
      */
-    private static $username = '';
-    
-    /**
-     * @var string Api key.
-     */
     private static $api_key = '';
     
     /**
@@ -34,6 +31,12 @@ class MailChimp implements SingletonInterface
      */
     private static $token = '';
     
+    /**
+     * The config object instance
+     * @var \Config
+     */
+    private static $config = Null;
+    
     
     private function __construct()
     {
@@ -45,15 +48,16 @@ class MailChimp implements SingletonInterface
      *
      * @return Singleton The *Singleton* instance.
      */
-    public static function getInstance()
+    public static function getInstance(\Manager\Config\Config $config = Null)
     {
         if (null === static::$instance) 
         {
-            SELF::setDbCredentials();
+            SELF::$config = $config;
             
+            SELF::setCredentials(SELF::$config->__get('api_key'));
+             
             SELF::$client       = new GuzzleHttp\Client();
             SELF::$token        = SELF::getToken()->access_token;
-            SELF::$instance_url = SELF::getToken()->instance_url;
             
             static::$instance = new static();
         }
@@ -66,13 +70,9 @@ class MailChimp implements SingletonInterface
      *
      * @return void
      */
-    private function setDbCredentials()
+    private function setCredentials($api_key = '')
     {
-        SELF::$username      = getenv('SALESFORCE_USERNAME');
-        SELF::$password      = getenv('SALESFORCE_PASSWORD');
-        SELF::$url           = getenv('SALESFORCE_URL');
-        SELF::$client_id     = getenv('SALESFORCE_CLIENTID');
-        SELF::$client_secret = getenv('SALESFORCE_CLIENT_SECRET');
+        SELF::$api_key = $api_key;
     }
 
     

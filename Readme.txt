@@ -4,4 +4,4 @@ Test execution:
 
 Normal run:
 
-php manage.php listClasses
+php manage.php
