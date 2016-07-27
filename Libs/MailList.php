@@ -1,5 +1,6 @@
 <?php
-Class Classroom 
+
+Class MailList 
 {
     /**
      * Default constructor.

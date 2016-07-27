@@ -1,8 +1,10 @@
 <?php
 
-namespace Manager\libs\Factories;
+namespace Manager\Libs\Factories;
 
-class StudentFactory implements FactoryInterface
+use Manager\Libs\Interfaces\FactoryInterface;
+
+class MemberFactory implements FactoryInterface
 {
     /**
      * Creates a Student object

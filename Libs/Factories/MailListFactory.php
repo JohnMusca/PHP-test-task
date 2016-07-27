@@ -1,8 +1,10 @@
 <?php
 
-namespace Manager\libs\Factories;
+namespace Manager\Libs\Factories;
 
-class ClassFactory implements FactoryInterface
+use Manager\Libs\Interfaces\FactoryInterface;
+
+class MailListFactory implements FactoryInterface
 {
     /**
      * Creates a classroom object.

@@ -7,27 +7,17 @@ class Config implements SingletonInterface
     /**
     * @var string Username.
     */
-    private static $username = 'root';
+    private static $username = 'DaCount1';
     
     /**
      * @var string Password.
      */
-    private static $password = 'password';
+    private static $password = '';
     
     /**
      * @var string DB_url.
      */
-    private static $db_host = 'localhost';
-    
-    /**
-     * @var String Database.
-     */
-    private static $database = 'classmanagement';
-    
-    /**
-     * @var Object The MySQL connection object.
-     */
-    private static $client = '';
+    private static $api_key = '2b976df89c7e404eea60b26153152bdc-us13';
     
     /**
      * @var Object The current running instance of the object.

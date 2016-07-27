@@ -1,5 +1,6 @@
 <?php
-Class Student
+
+Class Member
 {
     /**
      * Default constructor.

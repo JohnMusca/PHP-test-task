@@ -1,6 +1,6 @@
 <?php
 
-namespace Manager\libs\Interfaces;
+namespace Manager\Libs\Interfaces;
 
 interface FactoryInterface
 {   
