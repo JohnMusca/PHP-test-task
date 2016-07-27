@@ -21,6 +21,9 @@ Class MailChimpController
      */
     private $member = Null;
     
+    /**
+     * Default Constructor. Creates maillist and member objects to use
+     */
     public function __construct()
     {
         //create instance of the maillist object

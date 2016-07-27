@@ -1,6 +1,9 @@
 <?php
 //TODO: Implement later
 
+/**
+ * Autoloader.
+ */
 class Autoloader {
     static public function loader($className) {
         $filename = str_replace('\\', '/', $className) . ".php";

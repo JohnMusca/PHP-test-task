@@ -8,7 +8,7 @@ use Libs\Interfaces\FactoryInterface;
 class MemberFactory implements FactoryInterface
 {
     /**
-     * Creates a Student object
+     * Creates a Member object
      * 
      * @return \libs\Factories\Student
      */

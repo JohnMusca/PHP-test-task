@@ -22,7 +22,7 @@ class MailChimp implements SingletonInterface
     private static $api_endpoint = 'https://<dc>.api.mailchimp.com/3.0';
     
     /**
-     * @var Object The current running instance of the object.
+     * @var MailChimp The current running instance of the object.
      */
     private static $instance;
     

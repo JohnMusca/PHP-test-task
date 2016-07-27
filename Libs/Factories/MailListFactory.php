@@ -9,7 +9,7 @@ use Libs\Interfaces\FactoryInterface;
 class MailListFactory implements FactoryInterface
 {
     /**
-     * Creates a classroom object.
+     * Creates a MailList object.
      * 
      * @return \libs\Factories\Classroom
      */
