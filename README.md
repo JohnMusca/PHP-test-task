@@ -16,7 +16,6 @@
 ### TODO:
 - Update __set and __get to use composition from a central magic method object.
 - Fix bug where first list doesn't have subscriber added to it
-- Change all tabs into 4 spaces
 
 ### Notes:
 - I'd like to have made a collection of lists and a collection of members driven by the database.
