@@ -12,11 +12,6 @@ class MailChimp implements SingletonInterface
     private static $url = '';
     
     /**
-     * @var string the token URL
-     */
-    private static $token_query = '/services/oauth2/token';
-    
-    /**
      * @var string Username.
      */
     private static $api_key = '';
@@ -56,8 +51,7 @@ class MailChimp implements SingletonInterface
             
             SELF::setCredentials(SELF::$config->__get('api_key'));
              
-            SELF::$client       = new GuzzleHttp\Client();
-            SELF::$token        = SELF::getToken()->access_token;
+            SELF::$client = new GuzzleHttp\Client();
             
             static::$instance = new static();
         }
@@ -108,39 +102,6 @@ class MailChimp implements SingletonInterface
         
         $res = SELF::$client->request($method, SELF::$instance_url .'/services/data/v33.0/' . $query_object, $query_params);
         
-        $request_object = json_decode($res->getBody()->getContents());
-        
-        return $request_object;
-    }
-    
-    /**
-     * getToken. Gets the token from appspace.
-     *
-     * @return String Returns the token.
-     */
-    
-    public function getToken()
-    {        
-        $res = SELF::$client->post(SELF::$url . SELF::$token_query, [
-                'headers' => array(
-                        'Accept'       => 'application/json',
-                        'Content-Type' => 'application/x-www-form-urlencoded',
-                ),
-                
-                'form_params' => array(
-                          'grant_type' => 'password',
-                          'client_id'     => SELF::$client_id,
-                          'client_secret' => SELF::$client_secret,
-                          'username'      => SELF::$username,
-                          'password'      => SELF::$password 
-                         )
-        ]);
-        
-        if($res->getStatusCode() !== 200)
-        {
-            return false;
-        }
-    
         $request_object = json_decode($res->getBody()->getContents());
         
         return $request_object;
